@@ -105,11 +105,19 @@ class EmployeeProfilePersonalService
         $employeeName   = $valueObject->getEmployeeName();
         $firstName      = $valueObject->getFirstName();
         $lastName       = $valueObject->getLastName();
+        $gender         = $valueObject->getGender();
+
+             if (!empty($gender) && !EmployeeGenderValue::isValidValue($gender)) {
+                 $hasError = true;
+                 $messages[] = TXT_UCF('GENDER_IS_INVALID');
+             }
 
         UserService::updateUserForEmployee($employeeId, $employeeName, $emailAddress);
         PersonDataService::updateForEmployee($employeeId, $firstName, $lastName, $emailAddress);
         PdpTaskOwnerService::updateForEmployee($employeeId, $employeeName);
     }
+
+
 
     static function updateEmailAddressRelated($employeeId, $emailAddress)
     {

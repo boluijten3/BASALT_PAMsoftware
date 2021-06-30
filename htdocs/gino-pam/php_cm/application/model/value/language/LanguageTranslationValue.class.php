@@ -63,6 +63,8 @@ class LanguageTranslationValue
     const en__FEMALE = 'Female';
     const nl__FEMALE = 'vrouw';
     const ev__FEMALE = 'vrouw';
+    const en__OTHER = 'Other';
+    const nl__OTHER = 'Anders';
     const en__FORMS = 'forms';
     const nl__FORMS = 'formulieren';
     const ev__FORMS = 'formulieren';
@@ -144,7 +146,12 @@ class LanguageTranslationValue
     const en__YES = 'yes';
     const nl__YES = 'ja';
     const ev__YES = 'ja';
-
+    const nl__FILTER_EMPLOYEES_GENDER_MALE = 'Man';
+    const en__FILTER_EMPLOYEES_GENDER_MALE = 'Male';
+    const nl__FILTER_EMPLOYEES_GENDER_FEMALE = 'Vrouw';
+    const en__FILTER_EMPLOYEES_GENDER_FEMALE = 'Female';
+    const nl__FILTER_EMPLOYEES_GENDER_OTHER = 'Anders';
+    const en__FILTER_EMPLOYEES_GENDER_OTHER = 'Other';
     // lang_cat_id = 1
     const en__360_DEFAULT_LABEL = '360';
     const nl__360_DEFAULT_LABEL = '360';

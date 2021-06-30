@@ -13,16 +13,19 @@ class EmployeeFilterDetail extends BaseInterfaceObject
 
     private $showAssessmentFilter = false;
     private $showBossFilter = false;
+    private $showGenderFilter = false;
     private $showDepartmentFilter = false;
     private $showFunctionFilter = false;
     private $showSortFilter = false;
 
     private $bossFilterIdValues;
+    private $genderFilterIdValues;
     private $departmentFilterIdValues;
     private $functionFilterIdValues;
 
     private $selectedAssessmentFilterValue;
     private $selectedBossFilterValue;
+    private $selectedGenderFilterValue;
     private $selectedDepartmentFilterValue;
     private $selectedFunctionFilterValue;
     private $selectedSortFilterValue;
@@ -50,18 +53,20 @@ class EmployeeFilterDetail extends BaseInterfaceObject
     {
         parent::__construct($displayWidth,
                             self::TEMPLATE_FILE);
-        
+
         $this->formId = $formId;
         $this->safeFormIdentifier = $safeFormIdentifier;
         $this->showAssessmentFilter = false;
         $this->showSortFilter = false;
 
         $this->showBossFilter = false;
+        $this->showGenderFilter = false;
         $this->showDepartmentFilter = false;
         $this->showFunctionFilter = false;
         $this->isFiltersVisible = false;
 
         $this->bossFilterIdValues = array();
+        $this->genderFilterIdValues = array();
         $this->departmentFilterIdValues = array();
         $this->functionFilterIdValues = array();
     }
@@ -76,6 +81,7 @@ class EmployeeFilterDetail extends BaseInterfaceObject
     function showFilters()
     {
         return $this->showAssessmentFilter() ||
+              $this->showGenderFilter() ||
                $this->showSortFilter() ||
                $this->showBossFilter() ||
                $this->showDepartmentFilter() ||
@@ -114,6 +120,28 @@ class EmployeeFilterDetail extends BaseInterfaceObject
     function getSelectedAssessmentFilterValue()
     {
         return $this->selectedAssessmentFilterValue;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // genderfilter
+    function setShowGenderFilter($showGenderFilter)
+    {
+        $this->showGenderFilter = $showGenderFilter;
+    }
+
+    function showGenderFilter()
+    {
+        return $this->showGenderFilter;
+    }
+
+    function setSelectedGenderFilterValue($selectedGenderFilterValue)
+    {
+        $this->selectedGenderFilterValue = $selectedGenderFilterValue;
+    }
+
+    function getSelectedGenderFilterValue()
+    {
+        return $this->selectedGenderFilterValue;
     }
 
 

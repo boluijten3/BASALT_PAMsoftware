@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2021-06-21 15:27:29
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 11:50:12
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\employee/profile/employeeProfilePersonalView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:304052406ee4d2e193-05797867%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2420560dc3e54a54aa8-31817372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3fd6897607ec6cb96446a5e49fb7c295a1a9bad5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\employee/profile/employeeProfilePersonalView.tpl',
-      1 => 1624264061,
+      1 => 1624630895,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '304052406ee4d2e193-05797867',
+  'nocache_hash' => '2420560dc3e54a54aa8-31817372',
   'function' => 
   array (
   ),
@@ -70,7 +70,7 @@ $_smarty_tpl->decodeProperties(array (
     <?php $_smarty_tpl->tpl_vars['gender'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getGender(), null, null);?>
     <?php if (!empty($_smarty_tpl->getVariable('gender',null,true,false)->value)){?>
     <tr>
-        <td class="content-label"><?php echo TXT_UCF('GENDER');?>
+            <td class="content-label"><?php echo TXT_UCF('GENDER');?>
 :</td>
         <td class="content-value"><?php echo EmployeeGenderConverter::display($_smarty_tpl->getVariable('gender')->value);?>
 </td>

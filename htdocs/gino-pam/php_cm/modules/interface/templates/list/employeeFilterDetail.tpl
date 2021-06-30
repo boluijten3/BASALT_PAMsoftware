@@ -20,6 +20,26 @@
         </tr>
         {/if}
     {/if}
+
+
+
+    {if $interfaceObject->showGenderFilter()}
+        {assign var=genderIdValues value=$interfaceObject->getGenderFilterIdValues()}
+        {if $bossIdValues|count > 1}
+        <tr>
+            <td>
+                <select onchange="{$interfaceObject->submitFunction()}" id="filter_gender" name="filter_gender">
+                    {include    file='components/selectIdValuesComponent.tpl'
+                                idValues=$gendersIdValues
+                                currentValue=$interfaceObject->getSelectedGenderFilterValue()
+                                required=false
+                                subject='GENDER'|TXT_LC}
+                </select>
+            </td>
+        </tr>
+        {/if}
+    {/if}
+
     {if $interfaceObject->showDepartmentFilter()}
         {assign var=departmentIdValues value=$interfaceObject->getDepartmentFilterIdValues()}
         {if $departmentIdValues|count > 0}

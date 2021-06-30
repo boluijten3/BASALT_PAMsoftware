@@ -147,16 +147,14 @@ function moduleEmployees_profileForm_deprecated($id_e) {
                             <tr>
                                 <td class="bottom_line">' . TXT_UCF('GENDER'). ' : </td>
                                 <td>';
-                                    $male = $get_e[sex] == 'Male' ? 'checked' : '';
-                                    $female = $get_e[sex] == 'Female' ? 'checked' : '';
-                                    $getemp_data .='
-                                    <input name="sex" type="radio" value="Male" ' . $male . ' tabindex="4"> ' . TXT_UCF('MALE') . '
-                                    <input name="sex" type="radio" value="Female" ' . $female . '> ' . TXT_UCF('FEMALE') . '
-                                </td>
-                                <td class="bottom_line">' . TXT_UCF('TELEPHONE_NUMBER') . ' : </td>
-                                <td>
-                                    <input name="phone_number" type="text" id="phone_number" size="30" value="' . htmlspecialchars($get_e[phone_number]) . '" tabindex="16">
-                                </td>
+                                  $male = $get_e[sex] == 'Male' ? 'checked' : '';
+                                  $female = $get_e[sex] == 'Female' ? 'checked' : '';
+                                  $other = $get_e[sex] == 'Other' ? 'checked' : '';
+                                  $getemp_data .='
+                                  <input name="sex" type="radio" value="Male" ' . $male . ' tabindex="4"> ' . TXT_UCF('MALE') . '
+                                  <input name="sex" type="radio" value="Female" ' . $female . '> ' . TXT_UCF('FEMALE') . '
+                                  <input name="sex" type="radio" value="Other" ' . $other . '> ' . TXT_UCF('OTHER') . '
+                              <td class="bottom_line">' . TXT_UCF('TELEPHONE_NUMBER') . ' : </td>
                             </tr>
                             <tr>
                                 <td class="bottom_line">' . TXT_UCF('DATE_OF_BIRTH') . ' : </td>
