@@ -132,6 +132,15 @@ class DateUtils
         }
         return $isBefore;
     }
+    
+    static function convertTodisplayAge($date, $empty='')
+{
+  $datetime1 = date_create($date);
+  $datetime2 = new Datetime();
+
+  return date_diff($datetime1, $datetime2)->format("%y");
+}
+
 }
 
 ?>

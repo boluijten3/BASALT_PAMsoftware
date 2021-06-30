@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2021-06-25 16:08:25
+<?php /* Smarty version Smarty-3.0.7, created on 2013-09-23 18:40:04
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\base/baseBlock.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2233560d5e359d4f119-99425937%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:257852406ee4c69ca8-45257626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '750166cf73c714228af29662dab4307e5d48c6cd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\base/baseBlock.tpl',
-      1 => 1624264059,
+      1 => 1379954115,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2233560d5e359d4f119-99425937',
+  'nocache_hash' => '257852406ee4c69ca8-45257626',
   'function' => 
   array (
   ),

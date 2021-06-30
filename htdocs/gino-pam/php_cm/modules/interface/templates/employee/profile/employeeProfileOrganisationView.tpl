@@ -33,6 +33,7 @@
         <td class="content-value">{EmployeeFteConverter::display($fte)}</td>
     </tr>
     {/if}
+
     {assign var=employmentDate value=$valueObject->getEmploymentDate()}
     {if !empty($employmentDate)}
     <tr>
@@ -40,6 +41,7 @@
         <td class="content-value">{DateConverter::display($employmentDate)}</td>
     </tr>
     {/if}
+
     {assign var=contractState value=$valueObject->getContractState()}
     {if !empty($contractState)}
     <tr>
