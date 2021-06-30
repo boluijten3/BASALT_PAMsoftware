@@ -123,7 +123,6 @@ class EmployeeFilterService
         }
 
     }
-    
 
     static function storeSortFilter($employeeSortValue)
     {

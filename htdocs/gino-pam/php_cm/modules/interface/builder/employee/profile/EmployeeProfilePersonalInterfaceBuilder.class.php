@@ -20,6 +20,7 @@ require_once('modules/model/value/employee/profile/EmployeeGenderValue.class.php
 // converters
 require_once('modules/interface/converter/employee/profile/EmployeeGenderConverter.class.php');
 require_once('modules/interface/converter/employee/profile/EmployeeNameConverter.class.php');
+require_once('modules/interface/converter/employee/profile/EmployeeMaritialStateConverter.class.php');
 
 class EmployeeProfilePersonalInterfaceBuilder
 {
@@ -65,6 +66,7 @@ class EmployeeProfilePersonalInterfaceBuilder
         $safeFormHandler->addStringInputFormatType('lastname');
         $safeFormHandler->addStringInputFormatType('SN');
         $safeFormHandler->addStringInputFormatType('sex');
+        $safeFormHandler->addIntegerInputFormatType('maritial_state');
         $safeFormHandler->addStringInputFormatType('birth_date'); // vanwege de !readonly een string
         $safeFormHandler->addStringInputFormatType('nationality');
         $safeFormHandler->addStringInputFormatType('street');

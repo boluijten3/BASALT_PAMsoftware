@@ -16,6 +16,8 @@ class EmployeeProfilePersonalValueObject extends BaseEmployeeProfileValueObject
     private $bsn;
     private $nationality;
 
+    private $maritialState;
+
     // contact
     private $street;
     private $postcode;
@@ -41,6 +43,7 @@ class EmployeeProfilePersonalValueObject extends BaseEmployeeProfileValueObject
                                         $lastName,
                                         $employeeName,
                                         $gender,
+                                        $maritialState,
                                         $birthDate,
                                         $bsn,
                                         $nationality,
@@ -60,6 +63,7 @@ class EmployeeProfilePersonalValueObject extends BaseEmployeeProfileValueObject
         $employeePersonalData['employee']               = $employeeName;
         $employeePersonalData['sex']                    = $gender;
         $employeePersonalData['birthdate']              = $birthDate;  // database date
+        $employeePersonalData['maritial_state_fid']		  = $maritialState;
         $employeePersonalData['SN']                     = $bsn;
         $employeePersonalData['nationality']            = $nationality;
 
@@ -88,6 +92,7 @@ class EmployeeProfilePersonalValueObject extends BaseEmployeeProfileValueObject
         // personal
         $this->gender           = $employeePersonalData['sex'];
         $this->birthDate        = $employeePersonalData['birthdate'];  // database date
+        $this->maritialState	  = $employeePersonalData['maritial_state_fid'];
         $this->bsn              = $employeePersonalData['SN'];
         $this->nationality      = $employeePersonalData['nationality'];
 
@@ -198,6 +203,13 @@ class EmployeeProfilePersonalValueObject extends BaseEmployeeProfileValueObject
     {
         return $this->externalSystemIdentifier;
     }
+
+    //// $maritialState
+	function getMaritialState()
+	{
+		return $this->maritialState;
+	}
+
 }
 
 ?>

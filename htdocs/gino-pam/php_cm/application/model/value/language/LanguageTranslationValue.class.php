@@ -17,6 +17,8 @@ class LanguageTranslationValue
     const nl__UNKNOWN = '|* UNKNOWN *|';
     const ev__UNKNOWN = '|* UNKNOWN *|';
 
+
+
     // lang_cat_id = NULL
     const en__ABOUT = 'about';
     const nl__ABOUT = 'over';
@@ -36,6 +38,20 @@ class LanguageTranslationValue
     const en__ARE_YOU_SURE_YOU_WANT_TO_DELETE_THE_USER = 'are you sure you want to delete the user';
     const nl__ARE_YOU_SURE_YOU_WANT_TO_DELETE_THE_USER = 'weet u zeker dat u de gebruiker wilt verwijderen';
     const ev__ARE_YOU_SURE_YOU_WANT_TO_DELETE_THE_USER = 'weet u zeker dat u de gebruiker wilt verwijderen';
+
+    const en__AGE = 'age';
+const nl__AGE = 'leeftijd';
+const ev__AGE = 'leeftijd';
+
+const en__YEARS_OF_SERVICE = 'Years of service';
+const nl__YEARS_OF_SERVICE = 'Jaren in dienst';
+const ev__YEARS_OF_SERVICE = 'Jaren in dienst';
+
+
+const en__DATE_VALIDATE = "No date in the future";
+const nl__DATE_VALIDATE  = "Datum invoeren die in toekomst ligt is niet mogelijk";
+const ev__DATE_VALIDATE  = "Datum invoeren die in toekomst ligt is niet mogelijk";
+
     const en__COMPLETION = 'completion';
     const nl__COMPLETION = 'afronding';
     const ev__COMPLETION = 'afronding';
@@ -659,6 +675,20 @@ class LanguageTranslationValue
     const en__CS_STAFFING = 'staffing';
     const nl__CS_STAFFING = 'inhuur';
     const ev__CS_STAFFING = 'inhuur';
+
+    const en__MARITIAL_STATE = 'burgerlijke staat';
+  const nl__MARITIAL_STATE = 'burgerlijke staat';
+  const ev__MARITIAL_STATE = 'burgerlijke staat';
+  const en__MS_GEHUWD = 'gehuwd';
+  const nl__MS_GEHUWD = 'gehuwd';
+  const ev__MS_GEHUWD = 'gehuwd';
+const en__MS_WETTIGGEHUWD = 'wettig gehuwd';
+  const nl__MS_WETTIGGEHUWD = 'wettig gehuwd';
+  const ev__MS_WETTIGGEHUWD = 'wettig gehuwd';
+const en__MS_ONGEHUWD = 'ongehuwd';
+  const nl__MS_ONGEHUWD = 'ongehuwd';
+  const ev__MS_ONGEHUWD = 'ongehuwd';
+
     const en__CTRL_CLICK_TO_SELECT_MULTIPLE_EMAILS = 'ctrl+click to select multiple emails';
     const nl__CTRL_CLICK_TO_SELECT_MULTIPLE_EMAILS = 'ctrl + klik om meerdere e-mails te selecteren';
     const ev__CTRL_CLICK_TO_SELECT_MULTIPLE_EMAILS = 'ctrl + klik om meerdere e-mails te selecteren';

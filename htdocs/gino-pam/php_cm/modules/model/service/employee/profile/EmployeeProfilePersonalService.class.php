@@ -9,6 +9,7 @@
 require_once('modules/model/queries/to_refactor/DocumentQueries.class.php');
 require_once('modules/model/queries/employee/profile/EmployeeProfileQueries.class.php');
 require_once('modules/model/valueobjects/employee/profile/EmployeeProfilePersonalValueObject.class.php');
+require_once('modules/model/value/employee/profile/EmployeeMaritialStateValue.class.php');
 
 // TODO: via service!!
 require_once('application/model/service/UserService.class.php');
@@ -59,6 +60,12 @@ class EmployeeProfilePersonalService
             $messages[] = TXT_UCF('GENDER_IS_INVALID');
         }
 
+        $maritialState = $valueObject->getMaritialState();
+                if (!EmployeeMaritialStateValue::isValidValue($maritialState)) {
+                    $hasError = true;
+                    $messages[] = TXT_UCF('MARITIAL_STATE_IS_INVALID');
+                }
+
         $birthDate = $valueObject->getBirthDate();
         if (! empty($birthDate)) {
             $checkResult = DateUtils::ValidateDisplayDate(trim($birthDate)); // TODO: validatie error message naar DateUtils!
@@ -76,6 +83,15 @@ class EmployeeProfilePersonalService
             }
         }
 
+        $dateOfBirth = $valueObject->getBirthDate();
+        		$birthDate = strtotime($dateOfBirth);
+        		$currentDate = date('Y-m-d');
+        		$todayDate = strtotime($currentDate);
+        		if ($birthDate > $todayDate){
+        			$hasError = true;
+                	$messages[] = TXT_UCF('DATE_VALIDATE');
+        		}
+
         return array($hasError, $messages);
     }
 
@@ -87,6 +103,7 @@ class EmployeeProfilePersonalService
                                                         $valueObject->getLastName(),
                                                         $valueObject->getEmployeeName(),
                                                         $valueObject->getGender(),
+                                                        $valueObject->getMaritialState(),
                                                         $valueObject->getBirthDate(),
                                                         $valueObject->getBsn(),
                                                         $valueObject->getNationality(),

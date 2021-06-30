@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-09-23 18:40:26
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 12:13:59
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\employee/profile/employeeProfilePersonalEdit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1879452406efada25e4-23810932%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3065960dc43e7536111-95905466%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5fc40e5b21e5842ead2fb4e8c7fa779cf99828a9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\employee/profile/employeeProfilePersonalEdit.tpl',
-      1 => 1379954116,
+      1 => 1625047621,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1879452406efada25e4-23810932',
+  'nocache_hash' => '3065960dc43e7536111-95905466',
   'function' => 
   array (
   ),
@@ -63,6 +63,20 @@ $_smarty_tpl->decodeProperties(array (
 $_template->assign('inputName','sex');$_template->assign('values',EmployeeGenderValue::values());$_template->assign('currentValue',$_smarty_tpl->getVariable('valueObject')->value->getGender());$_template->assign('converter','EmployeeGenderConverter'); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
         </td>
     </tr>
+
+    <tr>
+    <td class="form-label">
+        <label for="maritial_state"><?php echo TXT_UCF('MARITIAL_STATE');?>
+</label>
+    </td>
+    <td class="form-value">
+        <select name="maritial_state">
+        <?php $_template = new Smarty_Internal_Template('components/selectOptionsComponent.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+$_template->assign('values',EmployeeMaritialStateValue::values());$_template->assign('currentValue',$_smarty_tpl->getVariable('valueObject')->value->getMaritialState());$_template->assign('converter','EmployeeMaritialStateConverter'); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
+        </select>
+    </td>
+</tr>
+
     <tr>
         <td class="form-label" >
             <label for="birth_date"><?php echo TXT_UCF('DATE_OF_BIRTH');?>
