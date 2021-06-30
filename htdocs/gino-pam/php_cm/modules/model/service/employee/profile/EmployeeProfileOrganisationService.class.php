@@ -73,15 +73,6 @@ class EmployeeProfileOrganisationService
             $messages[] = TXT_UCF('CONTRACT_STATE_IS_INVALID');
         }
 
-        $dateOfEmployment = $valueObject->getEmploymentDate();
-        		$employmentDate = strtotime($dateOfEmployment);
-        		$currentDate = date('Y-m-d');
-        		$todayDate = strtotime($currentDate);
-        		if ($employmentDate > $todayDate){
-        			$hasError = true;
-                	$messages[] = TXT_UCF('FUTURE_DATE');
-        		}
-
         return array($hasError, $messages);
     }
 

@@ -23,12 +23,6 @@ class DateConverter
         return DateUtils::convertTodisplayDate($databaseDate, $empty);
     }
 
-    static function displayAge($date, $empty='')
-	{
-		return DateUtils::convertTodisplayAge($date, $empty);
-	}
-
-
 
 }
 

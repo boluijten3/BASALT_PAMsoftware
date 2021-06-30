@@ -149,11 +149,12 @@ function moduleEmployees_profileForm_deprecated($id_e) {
                                 <td>';
                                   $male = $get_e[sex] == 'Male' ? 'checked' : '';
                                   $female = $get_e[sex] == 'Female' ? 'checked' : '';
-                                  $other = $get_e[sex] == 'Other' ? 'checked' : '';
+                                  $nogender = $get_e[sex] == 'NoGender' ? 'checked' : '';
                                   $getemp_data .='
                                   <input name="sex" type="radio" value="Male" ' . $male . ' tabindex="4"> ' . TXT_UCF('MALE') . '
                                   <input name="sex" type="radio" value="Female" ' . $female . '> ' . TXT_UCF('FEMALE') . '
-                                  <input name="sex" type="radio" value="Other" ' . $other . '> ' . TXT_UCF('OTHER') . '
+                                  <input name="sex" type="radio" value="NoGender" ' . $other . '> ' . TXT_UCF('NOGENDER') . '
+                              </td>
                               <td class="bottom_line">' . TXT_UCF('TELEPHONE_NUMBER') . ' : </td>
                             </tr>
                             <tr>

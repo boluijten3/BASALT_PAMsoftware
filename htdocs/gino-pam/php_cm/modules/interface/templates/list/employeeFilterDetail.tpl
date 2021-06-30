@@ -33,7 +33,7 @@
                                 idValues=$gendersIdValues
                                 currentValue=$interfaceObject->getSelectedGenderFilterValue()
                                 required=false
-                                subject='GENDER'|TXT_LC}
+                                subject='NOGENDER'|TXT_LC}
                 </select>
             </td>
         </tr>

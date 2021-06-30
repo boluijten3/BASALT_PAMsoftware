@@ -26,7 +26,7 @@ class EmployeeFilterSafeFormProcessor
             if ($filtersVisible) {
                 $showAssessmentFilter   = $safeFormHandler->retrieveSafeValue('showAssessmentFilter');
                 $showBossFilter         = $safeFormHandler->retrieveSafeValue('showBossFilter');
-                $showGenderFilter       = $safeFormHandler->retrieveSafeValue('showGenderFilter');
+                $showGenderFilter         = $safeFormHandler->retrieveSafeValue('showGenderFilter');
                 $showDepartmentFilter   = $safeFormHandler->retrieveSafeValue('showDepartmentFilter');
                 $showFunctionFilter     = $safeFormHandler->retrieveSafeValue('showFunctionFilter');
                 $showSortFilter         = $safeFormHandler->retrieveSafeValue('showSortFilter');
@@ -34,7 +34,7 @@ class EmployeeFilterSafeFormProcessor
                 // filter waarden ophalen en valideren, opslaan in sessie via EmployeeFilterService
                 $assessmentFilterValue  = !$showAssessmentFilter    ? NULL : $safeFormHandler->retrieveInputValue('filter_assessment');
                 $bossFilterValue        = !$showBossFilter          ? NULL : $safeFormHandler->retrieveInputValue('filter_boss');
-                $genderFilterValue      = !$showGenderFilter        ? NULL : $safeFormHandler->retrieveInputValue('filter_gender');
+                $genderFilterValue        = !$showGenderFilter      ? NULL : $safeFormHandler->retrieveInputValue('filter_gender');
                 $departmentFilterValue  = !$showDepartmentFilter    ? NULL : $safeFormHandler->retrieveInputValue('filter_department');
                 $functionFilterValue    = !$showFunctionFilter      ? NULL : $safeFormHandler->retrieveInputValue('filter_function');
                 $sortFilterValue        = !$showSortFilter          ? EmployeeSortFilterValue::SORT_ALPHABETICAL : $safeFormHandler->retrieveInputValue('filter_sort');

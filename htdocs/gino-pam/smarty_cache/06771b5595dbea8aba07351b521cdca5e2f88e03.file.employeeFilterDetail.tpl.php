@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2013-09-23 18:40:03
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-25 16:18:11
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\list/employeeFilterDetail.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1758252406ee38b9c11-82068896%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:195060d5e5a3c91222-27900034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '06771b5595dbea8aba07351b521cdca5e2f88e03' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\list/employeeFilterDetail.tpl',
-      1 => 1379954117,
+      1 => 1624630688,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1758252406ee38b9c11-82068896',
+  'nocache_hash' => '195060d5e5a3c91222-27900034',
   'function' => 
   array (
   ),
@@ -35,6 +35,24 @@ $_template->assign('idValues',$_smarty_tpl->getVariable('bossIdValues')->value);
         </tr>
         <?php }?>
     <?php }?>
+
+
+
+    <?php if ($_smarty_tpl->getVariable('interfaceObject')->value->showGenderFilter()){?>
+        <?php $_smarty_tpl->tpl_vars['genderIdValues'] = new Smarty_variable($_smarty_tpl->getVariable('interfaceObject')->value->getGenderFilterIdValues(), null, null);?>
+        <?php if (count($_smarty_tpl->getVariable('bossIdValues')->value)>1){?>
+        <tr>
+            <td>
+                <select onchange="<?php echo $_smarty_tpl->getVariable('interfaceObject')->value->submitFunction();?>
+" id="filter_gender" name="filter_gender">
+                    <?php $_template = new Smarty_Internal_Template('components/selectIdValuesComponent.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+$_template->assign('idValues',$_smarty_tpl->getVariable('gendersIdValues')->value);$_template->assign('currentValue',$_smarty_tpl->getVariable('interfaceObject')->value->getSelectedGenderFilterValue());$_template->assign('required',false);$_template->assign('subject',TXT_LC('NOGENDER')); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
+                </select>
+            </td>
+        </tr>
+        <?php }?>
+    <?php }?>
+
     <?php if ($_smarty_tpl->getVariable('interfaceObject')->value->showDepartmentFilter()){?>
         <?php $_smarty_tpl->tpl_vars['departmentIdValues'] = new Smarty_variable($_smarty_tpl->getVariable('interfaceObject')->value->getDepartmentFilterIdValues(), null, null);?>
         <?php if (count($_smarty_tpl->getVariable('departmentIdValues')->value)>0){?>

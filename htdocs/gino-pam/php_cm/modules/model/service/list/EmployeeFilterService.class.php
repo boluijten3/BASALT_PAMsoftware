@@ -12,7 +12,6 @@ require_once('modules/model/queries/employee/EmployeeInfoQueries.class.php');
 
 // value
 require_once('modules/model/value/list/EmployeeAssessmentFilterValue.class.php');
-require_once('modules/model/value/list/EmployeeGenderFilterValue.class.php');
 require_once('modules/model/value/list/EmployeeSortFilterValue.class.php');
 require_once('modules/model/value/list/BossFilterValue.class.php');
 
@@ -101,7 +100,7 @@ class EmployeeFilterService
     {
         $showAssessmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER);
         $showBossFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_BOSS_FILTER);
-         $showGenderFilter     = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_GENDER_FILTER);
+        $showGenderFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_GENDER_FILTER);
         $showDepartmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_DEPARTMENT_FILTER);
         $showFunctionFilter   = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_FUNCTION_FILTER);
         $showSortFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER) ||
@@ -265,33 +264,42 @@ class EmployeeFilterService
     }
 
     ////////////////////////////////////////////////////////////////
-    // employee gender
+    // gender filter
     ////////////////////////////////////////////////////////////////
 
     static function initializeGenderFilter($doClear = self::CLEAR_FILTER)
     {
-
         if ($doClear == self::CLEAR_FILTER ||
-            PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_GENDER_FILTER)) {
+            PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_GENDER_FILTER)) {
             unset($_SESSION[self::SESSION_STORE_FILTER_GENDER]);
         }
     }
 
-    static function storeGenderFilter($employeeFilterValue)
+    static function storeGenderFilter($genderFilterValue)
     {
-        $_SESSION[self::SESSION_STORE_FILTER_GENDER] = $employeeFilterValue;
+        $_SESSION[self::SESSION_STORE_FILTER_GENDER] = $genderFilterValue;
     }
 
-    static function retrieveGenderFilter($emptyValue = EmployeeGenderFilterValue::ANY)
+    static function retrieveGenderFilter()
     {
-        return self::hasActiveGenderFilter() ? $_SESSION[self::SESSION_STORE_FILTER_GENDER] : $emptyValue;
+        if (PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_GENDER_FILTER) &&
+            USER_LEVEL == UserLevelValue::MANAGER) {
+            self::storeGenderFilter(EMPLOYEE_ID);
+        }
+        return @$_SESSION[self::SESSION_STORE_FILTER_GENDER];
     }
-
 
     static function hasActiveGenderFilter()
     {
-        return !empty($_SESSION[self::SESSION_STORE_FILTER_GENDER]);
+        if (PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_Gender_FILTER) &&
+            USER_LEVEL == UserLevelValue::MANAGER) {
+            $hasActiveGenderFilter = false;
+        } else {
+            $hasActiveGenderFilter = !empty($_SESSION[self::SESSION_STORE_FILTER_GENDER]);
+        }
+        return $hasActiveGenderFilter;
     }
+
 
     ////////////////////////////////////////////////////////////////
     // department filter
@@ -354,8 +362,7 @@ class EmployeeFilterService
 
     // haal alle toegestane employeeIds op.
     // ** voor externe functies de EmployeeSelectService varianten gebruiken!!
-    static function getAllowedEmployeeIds(  $genderFilter = null,
-                                             $bossFilterValue,
+    static function getAllowedEmployeeIds(  $bossFilterValue,
                                             $filteredEmployeeIds = self::NO_EMPLOYEEID_FILTER,
                                             $searchFilter = null,
                                             $departmentFilterValue = null,
@@ -364,8 +371,7 @@ class EmployeeFilterService
                                             $returnAsString = true)
     {
         list($selectIsBoss, $selectHasNoBoss, $selectBossId) = BossFilterValue::explainValue($bossFilterValue);
-        $query = EmployeeFilterQueries::selectAllowedEmployeeIds(   $genderFilter,
-                                                                 $searchFilter,
+        $query = EmployeeFilterQueries::selectAllowedEmployeeIds(   $searchFilter,
                                                                     $filteredEmployeeIds,
                                                                     $selectBossId,
                                                                     $selectHasNoBoss,
@@ -406,11 +412,9 @@ class EmployeeFilterService
         $bossFilter         = self::retrieveBossFilter();
         $departmentFilter   = self::retrieveDepartmentFilter();
         $mainFunctionFilter = self::retrieveFunctionFilter();
-        $genderFilter       = self::retrieveGenderFilter();
 
         // wie mogen we zien...
-        $allowedEmployeeIds = self::getAllowedEmployeeIds(  $genderFilter,
-                                                           $bossFilter,
+        $allowedEmployeeIds = self::getAllowedEmployeeIds(  $bossFilter,
                                                             self::NO_EMPLOYEEID_FILTER,
                                                             $employeeSearch,
                                                             $departmentFilter,
