@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 11:50:12
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 12:53:51
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\employee/profile/employeeProfileOrganisationView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2669060dc3e54d9e193-06016362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:722760dc4d3f7c1a08-84017504%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'feb8185da1440bcfb6340c661675eaaa82116b3f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\employee/profile/employeeProfileOrganisationView.tpl',
-      1 => 1624264061,
+      1 => 1625050427,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2669060dc3e54d9e193-06016362',
+  'nocache_hash' => '722760dc4d3f7c1a08-84017504',
   'function' => 
   array (
   ),
@@ -65,6 +65,7 @@ $_smarty_tpl->decodeProperties(array (
 </td>
     </tr>
     <?php }?>
+
     <?php $_smarty_tpl->tpl_vars['employmentDate'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getEmploymentDate(), null, null);?>
     <?php if (!empty($_smarty_tpl->getVariable('employmentDate',null,true,false)->value)){?>
     <tr>
@@ -74,6 +75,7 @@ $_smarty_tpl->decodeProperties(array (
 </td>
     </tr>
     <?php }?>
+
     <?php $_smarty_tpl->tpl_vars['contractState'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getContractState(), null, null);?>
     <?php if (!empty($_smarty_tpl->getVariable('contractState',null,true,false)->value)){?>
     <tr>

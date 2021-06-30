@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 11:50:12
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 12:42:51
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\employee/profile/employeeProfilePersonalView.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2420560dc3e54a54aa8-31817372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:620860dc4aab8dada2-98843447%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3fd6897607ec6cb96446a5e49fb7c295a1a9bad5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\employee/profile/employeeProfilePersonalView.tpl',
-      1 => 1624630895,
+      1 => 1625049315,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2420560dc3e54a54aa8-31817372',
+  'nocache_hash' => '620860dc4aab8dada2-98843447',
   'function' => 
   array (
   ),
@@ -70,7 +70,7 @@ $_smarty_tpl->decodeProperties(array (
     <?php $_smarty_tpl->tpl_vars['gender'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getGender(), null, null);?>
     <?php if (!empty($_smarty_tpl->getVariable('gender',null,true,false)->value)){?>
     <tr>
-            <td class="content-label"><?php echo TXT_UCF('GENDER');?>
+        <td class="content-label"><?php echo TXT_UCF('GENDER');?>
 :</td>
         <td class="content-value"><?php echo EmployeeGenderConverter::display($_smarty_tpl->getVariable('gender')->value);?>
 </td>
@@ -100,6 +100,19 @@ $_smarty_tpl->decodeProperties(array (
     <?php }else{ ?>
         <?php $_smarty_tpl->tpl_vars['extraRows'] = new Smarty_variable($_smarty_tpl->getVariable('extraRows')->value+1, null, null);?>
     <?php }?>
+    
+    <?php $_smarty_tpl->tpl_vars['birthDate'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getBirthDate(), null, null);?>
+  <?php if (!empty($_smarty_tpl->getVariable('birthDate',null,true,false)->value)){?>
+  <tr>
+      <td class="content-label"><?php echo TXT_UCF('AGE');?>
+:</td>
+      <td class="content-value"><?php echo DateConverter::displayAge($_smarty_tpl->getVariable('birthDate')->value);?>
+</td>
+  </tr>
+  <?php }else{ ?>
+      <?php $_smarty_tpl->tpl_vars['extraRows'] = new Smarty_variable($_smarty_tpl->getVariable('extraRows')->value+1, null, null);?>
+  <?php }?>
+
     <tr>
         <td class="content-label">&nbsp;</td>
         <td class="content-value">&nbsp;</td>
@@ -144,6 +157,17 @@ $_smarty_tpl->decodeProperties(array (
     <?php }else{ ?>
         <?php $_smarty_tpl->tpl_vars['extraRows'] = new Smarty_variable($_smarty_tpl->getVariable('extraRows')->value+1, null, null);?>
     <?php }?>
+
+    <?php $_smarty_tpl->tpl_vars['maritialState'] = new Smarty_variable($_smarty_tpl->getVariable('valueObject')->value->getMaritialState(), null, null);?>
+    <?php if (!empty($_smarty_tpl->getVariable('maritialState',null,true,false)->value)){?>
+    <tr>
+        <td class="content-label"><?php echo TXT_UCF('MARITIAL_STATE');?>
+:</td>
+        <td class="content-value"><?php echo EmployeeMaritialStateConverter::display($_smarty_tpl->getVariable('maritialState')->value);?>
+</td>
+    </tr>
+    <?php }?>
+
     <?php if (!empty($_smarty_tpl->getVariable('displayablePhoto',null,true,false)->value)){?>
     <?php $_smarty_tpl->tpl_vars['extraRow'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['extraRow']->step = 1;$_smarty_tpl->tpl_vars['extraRow']->total = (int)ceil(($_smarty_tpl->tpl_vars['extraRow']->step > 0 ? $_smarty_tpl->getVariable('extraRows')->value+1 - (1) : 1-($_smarty_tpl->getVariable('extraRows')->value)+1)/abs($_smarty_tpl->tpl_vars['extraRow']->step));
 if ($_smarty_tpl->tpl_vars['extraRow']->total > 0){
