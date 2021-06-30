@@ -63,8 +63,6 @@ class LanguageTranslationValue
     const en__FEMALE = 'Female';
     const nl__FEMALE = 'vrouw';
     const ev__FEMALE = 'vrouw';
-    const en__NOGENDER = 'Other';
-    const nl__NOGENDER = 'Anders';
     const en__FORMS = 'forms';
     const nl__FORMS = 'formulieren';
     const ev__FORMS = 'formulieren';
@@ -146,12 +144,7 @@ class LanguageTranslationValue
     const en__YES = 'yes';
     const nl__YES = 'ja';
     const ev__YES = 'ja';
-    const nl__FILTER_EMPLOYEES_GENDER_MALE = 'Man';
-    const en__FILTER_EMPLOYEES_GENDER_MALE = 'Male';
-    const nl__FILTER_EMPLOYEES_GENDER_FEMALE = 'Vrouw';
-    const en__FILTER_EMPLOYEES_GENDER_FEMALE = 'Female';
-    const nl__FILTER_EMPLOYEES_GENDER_OTHER = 'Anders';
-    const en__FILTER_EMPLOYEES_GENDER_OTHER = 'Other';
+
     // lang_cat_id = 1
     const en__360_DEFAULT_LABEL = '360';
     const nl__360_DEFAULT_LABEL = '360';
@@ -675,18 +668,6 @@ class LanguageTranslationValue
     const en__CURRENT = 'current';
     const nl__CURRENT = 'actueel';
     const ev__CURRENT = 'actueel';
-    const en__MARITIAL_STATE = 'burgerlijke staat';
- const nl__MARITIAL_STATE = 'burgerlijke staat';
- const ev__MARITIAL_STATE = 'burgerlijke staat';
- const en__MS_GEHUWD = 'gehuwd';
- const nl__MS_GEHUWD = 'gehuwd';
- const ev__MS_GEHUWD = 'gehuwd';
-const en__MS_WETTIGGEHUWD = 'wettig gehuwd';
- const nl__MS_WETTIGGEHUWD = 'wettig gehuwd';
- const ev__MS_WETTIGGEHUWD = 'wettig gehuwd';
-const en__MS_ONGEHUWD = 'ongehuwd';
- const nl__MS_ONGEHUWD = 'ongehuwd';
- const ev__MS_ONGEHUWD = 'ongehuwd';
     const en__CURRENT_ACTION = 'Current action';
     const nl__CURRENT_ACTION = 'huidige actie';
     const ev__CURRENT_ACTION = 'huidige actie';

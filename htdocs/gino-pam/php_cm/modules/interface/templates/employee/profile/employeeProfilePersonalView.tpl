@@ -63,17 +63,6 @@
     {else}
         {assign var=extraRows value=$extraRows+1}
     {/if}
-    
-    {assign var=birthDate value=$valueObject->getBirthDate()}
-  {if !empty($birthDate)}
-  <tr>
-      <td class="content-label">{'AGE'|TXT_UCF}:</td>
-      <td class="content-value">{DateConverter::displayAge($birthDate)}</td>
-  </tr>
-  {else}
-      {assign var=extraRows value=$extraRows+1}
-  {/if}
-
     <tr>
         <td class="content-label">&nbsp;</td>
         <td class="content-value">&nbsp;</td>
@@ -110,15 +99,6 @@
     {else}
         {assign var=extraRows value=$extraRows+1}
     {/if}
-
-    {assign var=maritialState value=$valueObject->getMaritialState()}
-    {if !empty($maritialState)}
-    <tr>
-        <td class="content-label">{'MARITIAL_STATE'|TXT_UCF}:</td>
-        <td class="content-value">{EmployeeMaritialStateConverter::display($maritialState)}</td>
-    </tr>
-    {/if}
-
     {if !empty($displayablePhoto)}
     {for $extraRow=1 to $extraRows}
     <tr>

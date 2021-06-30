@@ -27,7 +27,6 @@ class EmployeeFilterService
     /* private */ const SESSION_STORE_SEARCH_EMPLOYEE    = 's_employee';
     /* private */ const SESSION_STORE_FILTER_ASSESSMENT  = 'i_assessment_filter';
     /* private */ const SESSION_STORE_FILTER_BOSS        = 'i_boss_filters';
-    /* private */ const SESSION_STORE_FILTER_GENDER        = 'i_gender_filters';
     /* private */ const SESSION_STORE_FILTER_DEPARTMENT  = 'i_department_filters';
     /* private */ const SESSION_STORE_FILTER_FUNCTION    = 'i_function_filters';
     /* private */ const SESSION_STORE_FILTER_SORT        = 'i_sort_filters';
@@ -51,7 +50,6 @@ class EmployeeFilterService
         self::initializeAssessmentFilter($doClear);
         self::initializeSortFilter($doClear);
         self::initializeBossFilter($doClear);
-        self::initializeGenderFilter($doClear);
         self::initializeDepartmentFilter($doClear);
         self::initializeFunctionFilter($doClear);
 
@@ -61,7 +59,6 @@ class EmployeeFilterService
     {
         return  self::hasActiveAssessmentFilter() ||
                 self::hasActiveBossFilter() ||
-                self::hasActiveGenderFilter() ||
                 self::hasActiveDepartmentFilter() ||
                 self::hasActiveFunctionFilter();
     }
@@ -100,13 +97,12 @@ class EmployeeFilterService
     {
         $showAssessmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER);
         $showBossFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_BOSS_FILTER);
-        $showGenderFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_GENDER_FILTER);
         $showDepartmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_DEPARTMENT_FILTER);
         $showFunctionFilter   = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_FUNCTION_FILTER);
         $showSortFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER) ||
                                 PermissionsService::isViewAllowed(PERMISSION_EMPLOYEE_SCORE_FINALIZE_SCORE);
 
-        return $showAssessmentFilter || $showGenderFilter || $showBossFilter || $showDepartmentFilter || $showFunctionFilter || $showSortFilter;
+        return $showAssessmentFilter || $showBossFilter || $showDepartmentFilter || $showFunctionFilter || $showSortFilter;
     }
 
     ////////////////////////////////////////////////////////////////
@@ -127,7 +123,7 @@ class EmployeeFilterService
         }
 
     }
-
+    
 
     static function storeSortFilter($employeeSortValue)
     {
@@ -262,44 +258,6 @@ class EmployeeFilterService
         }
         return $bosses;
     }
-
-    ////////////////////////////////////////////////////////////////
-    // gender filter
-    ////////////////////////////////////////////////////////////////
-
-    static function initializeGenderFilter($doClear = self::CLEAR_FILTER)
-    {
-        if ($doClear == self::CLEAR_FILTER ||
-            PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_GENDER_FILTER)) {
-            unset($_SESSION[self::SESSION_STORE_FILTER_GENDER]);
-        }
-    }
-
-    static function storeGenderFilter($genderFilterValue)
-    {
-        $_SESSION[self::SESSION_STORE_FILTER_GENDER] = $genderFilterValue;
-    }
-
-    static function retrieveGenderFilter()
-    {
-        if (PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_GENDER_FILTER) &&
-            USER_LEVEL == UserLevelValue::MANAGER) {
-            self::storeGenderFilter(EMPLOYEE_ID);
-        }
-        return @$_SESSION[self::SESSION_STORE_FILTER_GENDER];
-    }
-
-    static function hasActiveGenderFilter()
-    {
-        if (PermissionsService::isAccessDenied(PERMISSION_EMPLOYEES_USE_Gender_FILTER) &&
-            USER_LEVEL == UserLevelValue::MANAGER) {
-            $hasActiveGenderFilter = false;
-        } else {
-            $hasActiveGenderFilter = !empty($_SESSION[self::SESSION_STORE_FILTER_GENDER]);
-        }
-        return $hasActiveGenderFilter;
-    }
-
 
     ////////////////////////////////////////////////////////////////
     // department filter

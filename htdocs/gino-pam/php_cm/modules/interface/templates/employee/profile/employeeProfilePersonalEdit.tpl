@@ -27,7 +27,7 @@
     </tr>
     <tr>
         <td class="form-label">
-                 <label for="sex">{'GENDER'|TXT_UCF}NOGENDER</label>
+            <label for="sex">{'GENDER'|TXT_UCF}</label>
         </td>
         <td class="form-value">
             {include    file='components/selectRadioComponent.tpl'
@@ -37,20 +37,6 @@
                         converter='EmployeeGenderConverter'}
         </td>
     </tr>
-    <tr>
-       <td class="form-label">
-           <label for="maritial_state">{'MARITIAL_STATE'|TXT_UCF}</label>
-       </td>
-       <td class="form-value">
-           <select name="maritial_state">
-           {include    file='components/selectOptionsComponent.tpl'
-                       values=EmployeeMaritialStateValue::values()
-                       currentValue=$valueObject->getMaritialState()
-                       converter='EmployeeMaritialStateConverter'}
-           </select>
-       </td>
-   </tr>
-
     <tr>
         <td class="form-label" >
             <label for="birth_date">{'DATE_OF_BIRTH'|TXT_UCF}</label>

@@ -25,7 +25,6 @@ class EmployeeProfilePersonalSafeFormProcessor
             $lastName           = $safeFormHandler->retrieveInputValue('lastname');
             $bsn                = $safeFormHandler->retrieveInputValue('SN');
             $gender             = $safeFormHandler->retrieveInputValue('sex');
-            $maritialState      = $safeFormHandler->retrieveInputValue('maritial_state');
             $birthDisplayDate   = $safeFormHandler->retrieveInputValue('birth_date'); // vanwege de !readonly een string
             $nationality        = $safeFormHandler->retrieveInputValue('nationality');
             $street             = $safeFormHandler->retrieveInputValue('street');
@@ -40,7 +39,6 @@ class EmployeeProfilePersonalSafeFormProcessor
                                                                                 $lastName,
                                                                                 NULL,
                                                                                 $gender,
-                                                                                $maritialState,
                                                                                 $birthDisplayDate,
                                                                                 $bsn,
                                                                                 $nationality,

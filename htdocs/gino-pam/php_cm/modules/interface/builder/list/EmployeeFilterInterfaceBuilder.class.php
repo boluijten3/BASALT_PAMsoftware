@@ -39,7 +39,6 @@ class EmployeeFilterInterfaceBuilder
 
         $showAssessmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER);
         $showBossFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_BOSS_FILTER);
-        $showGenderFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_GENDER_FILTER);
         $showDepartmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_DEPARTMENT_FILTER);
         $showFunctionFilter   = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_FUNCTION_FILTER);
         $showSortFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER) ||
@@ -54,13 +53,11 @@ class EmployeeFilterInterfaceBuilder
         $safeFilterHandler->storeSafeValue('showSearch', $showSearch);
         $safeFilterHandler->storeSafeValue('showAssessmentFilter', $showAssessmentFilter);
         $safeFilterHandler->storeSafeValue('showBossFilter', $showBossFilter);
-        $safeFilterHandler->storeSafeValue('showGenderFilter', $showGenderFilter);
         $safeFilterHandler->storeSafeValue('showDepartmentFilter', $showDepartmentFilter);
         $safeFilterHandler->storeSafeValue('showFunctionFilter', $showFunctionFilter);
         $safeFilterHandler->storeSafeValue('showSortFilter', $showSortFilter);
 
         $safeFilterHandler->addStringInputFormatType ('filter_boss');
-        $safeFilterHandler->addStringInputFormatType ('filter_gender');
         $safeFilterHandler->addStringInputFormatType ('filter_department');
         $safeFilterHandler->addStringInputFormatType ('filter_function');
         $safeFilterHandler->addIntegerInputFormatType('filter_assessment');
@@ -124,7 +121,6 @@ class EmployeeFilterInterfaceBuilder
         $contentHtml = '';
         $showAssessmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER);
         $showBossFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_BOSS_FILTER);
-        $showGenderFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_GENDER_FILTER);
         $showDepartmentFilter = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_DEPARTMENT_FILTER);
         $showFunctionFilter   = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_FUNCTION_FILTER);
         $showSortFilter       = PermissionsService::isViewAllowed(PERMISSION_EMPLOYEES_USE_ASSESSEMENT_STATE_FILTER) ||
@@ -133,7 +129,6 @@ class EmployeeFilterInterfaceBuilder
         $interfaceObject = EmployeeFilterDetail::create(self::FILTER_FORM_ID, self::FILTER_SAFEFORM_ID, $displayWidth);
         $interfaceObject->setShowAssessmentFilter(  $showAssessmentFilter);
         $interfaceObject->setShowBossFilter(        $showBossFilter);
-        $interfaceObject->setShowGenderFilter(        $showGenderFilter);
         $interfaceObject->setShowDepartmentFilter(  $showDepartmentFilter);
         $interfaceObject->setShowFunctionFilter(    $showFunctionFilter);
         $interfaceObject->setShowSortFilter(        $showSortFilter);
@@ -143,15 +138,11 @@ class EmployeeFilterInterfaceBuilder
 
         $interfaceObject->setSelectedAssessmentFilterValue( EmployeeFilterService::retrieveAssessmentFilter());
         $interfaceObject->setSelectedBossFilterValue(       EmployeeFilterService::retrieveBossFilter());
-        $interfaceObject->setSelectedGenderFilterValue(       EmployeeFilterService::retrieveGenderFilter());
         $interfaceObject->setSelectedDepartmentFilterValue( EmployeeFilterService::retrieveDepartmentFilter());
         $interfaceObject->setSelectedFunctionFilterValue(   EmployeeFilterService::retrieveFunctionFilter());
         $interfaceObject->setSelectedSortFilterValue(       EmployeeFilterService::retrieveSortFilter());
         if ($showBossFilter) {
             $interfaceObject->setBossFilterIdValues(EmployeeFilterService::getBossFilterIdValues());
-        }
-        if ($showGenderFilter) {
-            $interfaceObject->setGenderFilterIdValues(EmployeeFilterService::getGenderFilterIdValues());
         }
         if ($showDepartmentFilter) {
             $interfaceObject->setDepartmentFilterIdValues(DepartmentService::getDepartmentIdValues());
