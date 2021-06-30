@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 12:13:59
+<?php /* Smarty version Smarty-3.0.7, created on 2021-06-30 15:48:37
          compiled from "C:\xampp\htdocs\gino-pam\php_cm/modules/interface/templates\employee/profile/employeeProfilePersonalEdit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3065960dc43e7536111-95905466%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:857660dc7635165715-10655166%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5fc40e5b21e5842ead2fb4e8c7fa779cf99828a9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\gino-pam\\php_cm/modules/interface/templates\\employee/profile/employeeProfilePersonalEdit.tpl',
-      1 => 1625047621,
+      1 => 1625060681,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3065960dc43e7536111-95905466',
+  'nocache_hash' => '857660dc7635165715-10655166',
   'function' => 
   array (
   ),
@@ -55,27 +55,26 @@ $_smarty_tpl->decodeProperties(array (
     </tr>
     <tr>
         <td class="form-label">
-            <label for="sex"><?php echo TXT_UCF('GENDER');?>
-</label>
+                 <label for="sex"><?php echo TXT_UCF('GENDER');?>
+NOGENDER</label>
         </td>
         <td class="form-value">
             <?php $_template = new Smarty_Internal_Template('components/selectRadioComponent.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('inputName','sex');$_template->assign('values',EmployeeGenderValue::values());$_template->assign('currentValue',$_smarty_tpl->getVariable('valueObject')->value->getGender());$_template->assign('converter','EmployeeGenderConverter'); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
         </td>
     </tr>
-
     <tr>
-    <td class="form-label">
-        <label for="maritial_state"><?php echo TXT_UCF('MARITIAL_STATE');?>
+       <td class="form-label">
+           <label for="maritial_state"><?php echo TXT_UCF('MARITIAL_STATE');?>
 </label>
-    </td>
-    <td class="form-value">
-        <select name="maritial_state">
-        <?php $_template = new Smarty_Internal_Template('components/selectOptionsComponent.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+       </td>
+       <td class="form-value">
+           <select name="maritial_state">
+           <?php $_template = new Smarty_Internal_Template('components/selectOptionsComponent.tpl', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('values',EmployeeMaritialStateValue::values());$_template->assign('currentValue',$_smarty_tpl->getVariable('valueObject')->value->getMaritialState());$_template->assign('converter','EmployeeMaritialStateConverter'); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
-        </select>
-    </td>
-</tr>
+           </select>
+       </td>
+   </tr>
 
     <tr>
         <td class="form-label" >

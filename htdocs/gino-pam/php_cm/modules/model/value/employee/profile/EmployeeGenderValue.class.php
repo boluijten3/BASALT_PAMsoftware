@@ -13,14 +13,14 @@ class EmployeeGenderValue extends BaseValue
 {
     const MALE      = 'Male';
     const FEMALE    = 'Female';
-    const NOGENDER  = 'Geen geslacht ingevuld';
+    const OTHER  = 'Anders';
 
     static function values()
     {
         return array(
             EmployeeGenderValue::MALE,
             EmployeeGenderValue::FEMALE,
-            EmployeeGenderValue::NOGENDER
+            EmployeeGenderValue::OTHER
             );
     }
 
@@ -40,7 +40,7 @@ class EmployeeGenderValue extends BaseValue
     }
     function isNoGender($value)
     {
-        return $value == self::NOGENDER;
+        return $value == self::OTHER;
     }
 }
 

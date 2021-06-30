@@ -6,14 +6,14 @@ class EmployeeGenderFilterValue extends BaseDatabaseValue
     const ANY = 0;
     const MALE = 1;
     const FEMALE = 2;
-    const NOGENDER = 3;
+    const OTHER = 3;
 
     static function values()
     {
         return array(
             self::MALE,
             self::FEMALE,
-            self::NOGENDER
+            self::OTHER
         );
     }
 
